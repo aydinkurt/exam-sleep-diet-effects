@@ -24,8 +24,8 @@ The dataset includes the following metrics:
 
 ### **Timeframe**
 Data will be collected from:
-- **Midterm Period**: 5â15 December 2024.
-- **Post-Midterm Period**: 16â25 December 2024.
+- **Midterm Period**: 5-15 December 2024.
+- **Post-Midterm Period**: 16-25 December 2024.
 
 ---
 
@@ -79,11 +79,11 @@ The project aims to:
 | **Date**       | **Task**                              |
 |-----------------|---------------------------------------|
 | Nov 30          | Set up GitHub repository and README   |
-| Dec 5â15        | Collect data during midterm period    |
-| Dec 16â25       | Collect data during post-midterm period |
-| Dec 26â30       | Data preprocessing and exploratory analysis |
-| Jan 1â5         | Statistical testing and visualization |
-| Jan 6â10        | Finalize insights and prepare report  |
+| Dec 5-15        | Collect data during midterm period    |
+| Dec 16-25       | Collect data during post-midterm period |
+| Dec 26-30       | Data preprocessing and exploratory analysis |
+| Jan 1-5         | Statistical testing and visualization |
+| Jan 6-10        | Finalize insights and prepare report  |
 
 ---
 
