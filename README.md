@@ -61,7 +61,7 @@ The project aims to:
    - Bar charts visualizing total hours of sleep in a day.
    - Bar chart for meal(s) skipped during the day.
    - Weight information for each day during the period on a bar chart.
-   -... (incomplete)
+   - ... 
 
 
 ---
