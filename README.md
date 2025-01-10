@@ -6,15 +6,13 @@ This project explores the relationship between sleep patterns and dietary habits
 ---
 
 ### **Data Source**
-- The data for this project is personally collected through manual logging and Apple Watch tracking.
+- The data for this project is personally collected through manual logging.
 
 ### **Metrics**
 The dataset includes the following metrics:
 - **Daily Sleep Duration**: Number of hours slept each day.
-- **Existence of an Exam**: Whether an exam occurred on that day (Yes/No).
-- **Breakfast Status**: Whether breakfast was consumed (Yes/No).
+- **Meal Status**: Whether meal was consumed (Yes/No).
 - **Calorie Intake**: Total calories consumed during the day.
-- **Weight Tracking**: Daily weight measurement.
 - **Time of Meals**: Timing of all meals throughout the day.
 
 ### **Collection Method**
@@ -61,7 +59,6 @@ The project aims to:
    - Bar charts visualizing total hours of sleep in a day.
    - Bar chart for meal(s) skipped during the day.
    - Weight information for each day during the period on a bar chart.
-   - ... 
 
 
 ---
@@ -73,6 +70,7 @@ The project aims to:
   - Data Analysis: Pandas, NumPy.
   - Visualization: Matplotlib.
   - Statistical Testing: SciPy, Statsmodels.
+
 ---
 
 ## **Timeline**
@@ -91,4 +89,23 @@ The project aims to:
 1. A cleaned and structured dataset with sleep, dietary, and routine metrics.
 2. Visualizations comparing midterm and post-midterm habits.
 3. A final report summarizing the analysis, findings, and recommendations.
+
+---
+
+## **Findings**
+
+### **Overview of Results**
+The data analysis conducted in this project has yielded several key insights into how midterm exams affect students' sleep patterns and dietary habits. Below are the detailed findings:
+
+### **1. Changes in Caloric Intake**
+Our analysis reveals a significant reduction in daily caloric intake after the exam period. This decrease is particularly noticeable in the consumption of coffee and snacks, which were more frequently consumed during the study sessions leading up to exams. The heightened stress and increased study hours during the midterm period likely prompted students to consume more small meals and caffeinated beverages, which are known for their convenience and stimulative properties.
+
+### **2. Sleep Patterns Adjustment**
+The total sleep duration increased after the exams were completed. This change indicates a recovery phase where students catch up on sleep previously lost during the exam preparation period. Interestingly, the data suggest that the reduction in sleep during exams was more due to earlier wake-up times rather than delayed bedtimes. Students getting up early to study could be a factor that significantly reduced sleep duration, as opposed to staying up late.
+
+### **3. Meal Skipping and Sleep Correlation**
+There is a correlation between meal skipping and altered sleep patterns. During the exam period, not only did caloric intake decrease, but the timing and frequency of meals also changed, with more meals being skipped. This irregularity in eating habits may further disrupt sleep patterns, compounding the stress effects of exams.
+
+### **4. Health Implications**
+The shift in routine meals and sleep patterns during exams has notable implications for students' overall health. The data indicate a cycle of reduced caloric intake and sleep during high-stress academic periods followed by a compensatory increase in both after exams conclude. This cycle can lead to increased physical and emotional stress and may affect academic performance and well-being.
 
