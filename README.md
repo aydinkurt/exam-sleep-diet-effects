@@ -1,4 +1,4 @@
-# **Analyzing the Impact of Sleep Patterns and Dietary Habits During Exam Periods**
+# **Analyzing the Impact of Exam Periods on Sleep Patterns and Dietary Habits**
 
 ## **Project Overview**
 This project explores the relationship between sleep patterns and dietary habits during high-stress periods, such as midterm exams. By analyzing personal data collected during midterms and the period after, the study aims to understand how exam stress affects sleep, caloric intake, and overall health. The findings will shed light on the interplay between disrupted sleep and dietary routines, offering actionable insights for maintaining health during stressful times.
