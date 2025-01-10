@@ -1,5 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import numpy as np
 
 # Creating the DataFrame with corrected date parsing
 data = {
@@ -7,32 +9,45 @@ data = {
                             "10/12/2024", "11/12/2024", "12/12/2024", "13/12/2024", "14/12/2024", 
                             "15/12/2024", "16/12/2024", "17/12/2024", "18/12/2024", "19/12/2024", 
                             "20/12/2024", "21/12/2024", "22/12/2024", "23/12/2024", "24/12/2024", "25/12/2024"],
-                           format='%d/%m/%Y'),  # Specify the format to match "day/month/year"
+                           format='%d/%m/%Y'),
     "Total Sleep (h)": [5, 6, 6.5, 8, 7, 5, 8, 6, 6.5, 3, 5, 7, 8, 7, 6, 8, 7, 9, 6, 8, 8],
-    "Sleep Start": ["3:30", "2:30", "2:30", "4:00", "2:30", "3:30", "3:00", "4:30", "4:00", "4:00", 
-                    "5:00", "3:00", "2:00", "3:00", "3:00", "2:30", "4:00", "2:30", "4:00", "2:00", "4:00"],
     "Total Daily Calories": [2755, 2765, 905, 1800, 1905, 2205, 1000, 1255, 1200, 1805, 
                              1000, 2350, 1350, 1850, 450, 1950, 700, 1300, 1300, 1300, 1800]
 }
 df = pd.DataFrame(data)
 
-# Plotting Day vs Total Sleep
-plt.figure(figsize=(10, 5))
+# Adding linear trend lines using numpy's polyfit
+z_sleep = np.polyfit(mdates.date2num(df['Date']), df['Total Sleep (h)'], 1)
+p_sleep = np.poly1d(z_sleep)
+
+z_calories = np.polyfit(mdates.date2num(df['Date']), df['Total Daily Calories'], 1)
+p_calories = np.poly1d(z_calories)
+
+# Plotting Day vs Total Sleep with Trend Line
+plt.figure(figsize=(14, 6))
 plt.plot(df['Date'], df['Total Sleep (h)'], marker='o', linestyle='-')
+plt.plot(df['Date'], p_sleep(mdates.date2num(df['Date'])), linestyle='--', label='Trend Line', color='red')
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%d-%m-%Y'))
 plt.xlabel('Date')
 plt.ylabel('Total Sleep (hours)')
-plt.title('Day vs. Total Sleep')
+plt.title('Day vs. Total Sleep with Trend Line')
+plt.legend()
 plt.grid(True)
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 
-# Plotting Day vs Total Calorie Intake
-plt.figure(figsize=(10, 5))
+# Plotting Day vs Total Calorie Intake with Trend Line
+plt.figure(figsize=(14, 6))
 plt.bar(df['Date'], df['Total Daily Calories'], color='skyblue')
+plt.plot(df['Date'], p_calories(mdates.date2num(df['Date'])), linestyle='--', label='Trend Line', color='red')
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%d-%m-%Y'))
 plt.xlabel('Date')
 plt.ylabel('Total Daily Calories')
-plt.title('Day vs. Total Calorie Intake')
+plt.title('Day vs. Total Calorie Intake with Trend Line')
+plt.legend()
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
@@ -40,6 +55,10 @@ plt.show()
 # Calculating and comparing average sleep during exam and post-exam periods
 exam_period_sleep_avg = df[df['Date'] <= '2024-12-15']['Total Sleep (h)'].mean()
 post_exam_period_sleep_avg = df[df['Date'] >= '2024-12-16']['Total Sleep (h)'].mean()
+
+# Calculating averages for calories
+avg_calories_exam = df[df['Date'] <= '2024-12-15']['Total Daily Calories'].mean()
+avg_calories_post_exam = df[df['Date'] >= '2024-12-16']['Total Daily Calories'].mean()
 
 # Plotting Average Total Sleep
 fig, ax = plt.subplots()
@@ -49,10 +68,6 @@ ax.set_title('Average Total Sleep: Exam vs. Post-Exam Periods')
 plt.tight_layout()
 plt.show()
 
-# Calculating averages for calories
-avg_calories_exam = df[df['Date'] <= '2024-12-15']['Total Daily Calories'].mean()
-avg_calories_post_exam = df[df['Date'] >= '2024-12-16']['Total Daily Calories'].mean()
-
 # Plotting Average Calories
 fig, ax = plt.subplots()
 ax.bar(['Exam Period', 'Post-Exam Period'], [avg_calories_exam, avg_calories_post_exam], color=['blue', 'orange'])
@@ -60,9 +75,3 @@ ax.set_ylabel('Average Daily Calories')
 ax.set_title('Average Daily Calories: Exam vs. Post-Exam Periods')
 plt.tight_layout()
 plt.show()
-
-# Outputting the calculated averages for reference
-print(f'Average Total Sleep during Exam Period: {exam_period_sleep_avg:.2f} hours')
-print(f'Average Total Sleep during Post-Exam Period: {post_exam_period_sleep_avg:.2f} hours')
-print(f'Average Calories during Exam Period: {avg_calories_exam:.2f}')
-print(f'Average Calories during Post-Exam Period: {avg_calories_post_exam:.2f}')
